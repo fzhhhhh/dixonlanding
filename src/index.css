@@ -805,8 +805,9 @@ a {
   height: 100%;
   object-fit: cover;
 
-  opacity: 0.56; /* 🔥 ajustar */
-  filter:  blur(2px) brightness(1);
+filter: grayscale(100%) sepia(1) hue-rotate(180deg) saturate(4);
+  opacity: 0.25;
+
   mix-blend-mode: screen;
 }
 
