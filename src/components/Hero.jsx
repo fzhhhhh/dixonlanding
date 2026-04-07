@@ -1,16 +1,28 @@
 import { Container, Row, Col, Button, Badge } from "react-bootstrap";
 import heroImg from "../assets/dixonfondotransp.webp";
-import wordmark from "../assets/branding/logo-wordmark.svg";
 
 function Hero() {
   return (
     <section id="inicio" className="hero-section">
+
+      {/* 🔥 HUMO REAL DE FONDO */}
+      <div className="hero-smoke-bg">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="hero-smoke-video"
+        >
+          <source src="/videos/smoke.mp4" type="video/mp4" />
+        </video>
+      </div>
+
       <Container>
         <Row className="align-items-center py-5 g-5 hero-row">
-          <Col lg={6}>
 
-            <br></br><br></br>
-
+          {/* TEXTO */}
+          <Col lg={6} className="hero-content">
 
             <Badge className="hero-badge mb-3">
               Taller especializado en motocicletas
@@ -56,18 +68,17 @@ function Hero() {
                 <p>Atención personalizada</p>
               </div>
             </div>
+
           </Col>
 
-
+          {/* LOGO INTEGRADO */}
           <Col lg={6} className="mt-4 mt-lg-0 hero-image-col">
             <div className="hero-image-shell">
-              <div className="hero-image-card">
-                <img
-                  src={heroImg}
-                  alt="Moto en taller"
-                  className="hero-image"
-                />
-              </div>
+              <img
+                src={heroImg}
+                alt="Dixon Moto Garage"
+                className="hero-image"
+              />
             </div>
           </Col>
 
