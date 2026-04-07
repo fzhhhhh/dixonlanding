@@ -14,7 +14,7 @@ function Hero() {
           playsInline
           className="hero-smoke-video"
         >
-          <source src="/videos/smoke.mp4" type="video/mp4" />
+          <source src="/videos/2.mp4" type="video/mp4" />
         </video>
       </div>
 

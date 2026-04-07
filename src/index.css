@@ -806,7 +806,7 @@ a {
   object-fit: cover;
 
   opacity: 0.56; /* 🔥 ajustar */
-  filter: grayscale(100%) blur(2px) brightness(0.7);
+  filter:  blur(2px) brightness(1);
   mix-blend-mode: screen;
 }
 
