@@ -23,7 +23,7 @@ function Hero() {
 
           {/* TEXTO */}
           <Col lg={6} className="hero-content">
-
+<br></br><br></br>
             <Badge className="hero-badge mb-3">
               Taller especializado en motocicletas
             </Badge>
