@@ -280,7 +280,7 @@ a {
   object-position: center;
   display: block;
   border-radius: 0;
-  opacity: 0.72;
+  opacity: 1;
   filter: grayscale(100%) brightness(1.18) contrast(1.08);
   mix-blend-mode: screen;
   transform: scale(1.16);

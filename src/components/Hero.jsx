@@ -1,5 +1,5 @@
 import { Container, Row, Col, Button, Badge } from "react-bootstrap";
-import heroImg from "../assets/Logo de Dixon Moto Garage.png";
+import heroImg from "../assets/dixonfondotransp.webp";
 import wordmark from "../assets/branding/logo-wordmark.svg";
 
 function Hero() {
