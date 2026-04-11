@@ -1,27 +1,80 @@
-function Bloqueado() {
-  return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: "#000",
-        color: "#fff",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-        textAlign: "center",
-        padding: "24px",
-      }}
-    >
-      <h1 style={{ fontSize: "3rem", marginBottom: "12px" }}>
-        Sitio en construcción
-      </h1>
+import { useState } from "react";
+import wordmark from "../assets/branding/logo-wordmark.svg";
+import "../styles/bloqueado.css";
 
-      <p style={{ fontSize: "1.1rem", opacity: 0.8, maxWidth: "600px" }}>
-        Estamos terminando los últimos detalles. Muy pronto vas a poder ver el
-        sitio completo.
-      </p>
-    </div>
+function Bloqueado() {
+  const [input, setInput] = useState("");
+  const [error, setError] = useState(false);
+
+  const PASSWORD = "dixon123";
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (input === PASSWORD) {
+      localStorage.setItem("auth", "ok");
+      window.location.reload();
+    } else {
+      setError(true);
+    }
+  };
+
+  return (
+    <section className="bloqueado-page">
+      <div className="bloqueado-smoke-bg">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="bloqueado-smoke-video"
+        >
+          <source src="/videos/smoke.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div className="bloqueado-overlay" />
+
+      <div className="bloqueado-content">
+        <div className="bloqueado-logo-wrap">
+          <img
+            src={wordmark}
+            alt="Dixon Moto Garage"
+            className="bloqueado-logo"
+          />
+        </div>
+
+        <span className="bloqueado-badge">Acceso privado</span>
+
+        <h1 className="bloqueado-title">Sitio en producción</h1>
+
+        <p className="bloqueado-text">
+          El sitio se encuentra en revisión final. Ingresá la clave para acceder
+          a la versión completa.
+        </p>
+
+        <form onSubmit={handleSubmit} className="bloqueado-form">
+          <input
+            type="password"
+            placeholder="Ingresar contraseña"
+            value={input}
+            onChange={(e) => {
+              setInput(e.target.value);
+              setError(false);
+            }}
+            className="bloqueado-input"
+          />
+
+          <button type="submit" className="bloqueado-button">
+            Ingresar
+          </button>
+        </form>
+
+        {error && (
+          <p className="bloqueado-error">Contraseña incorrecta</p>
+        )}
+      </div>
+    </section>
   );
 }
 

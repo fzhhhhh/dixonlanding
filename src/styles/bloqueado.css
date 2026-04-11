@@ -1,0 +1,225 @@
+/* =========================
+   BLOQUEADO
+========================= */
+
+.bloqueado-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.06), transparent 30%),
+    radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.03), transparent 30%),
+    linear-gradient(135deg, #000000 0%, #0b0b0b 55%, #121212 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.bloqueado-smoke-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bloqueado-smoke-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.14;
+  filter: grayscale(100%) blur(2px) brightness(0.7);
+  mix-blend-mode: screen;
+  animation: smokeFloat 18s ease-in-out infinite alternate;
+}
+
+.bloqueado-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.75)),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.85));
+}
+
+.bloqueado-content {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 560px);
+  padding: 42px 34px;
+  border-radius: 28px;
+  text-align: center;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  animation: fadeUp 0.8s ease;
+}
+
+.bloqueado-logo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.bloqueado-logo {
+  width: min(280px, 72%);
+  opacity: 0.96;
+  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.06));
+  animation: logoPulse 4s ease-in-out infinite;
+}
+
+.bloqueado-badge {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-family: var(--font-ui-bold);
+  font-size: 0.76rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bloqueado-title {
+  margin: 0 0 14px;
+  font-family: var(--font-title);
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 0.95;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow:
+    0 0 2px rgba(255, 255, 255, 0.12),
+    0 0 20px rgba(255, 255, 255, 0.04);
+}
+
+.bloqueado-text {
+  margin: 0 auto 26px;
+  max-width: 430px;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.bloqueado-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(100%, 320px);
+  margin: 0 auto;
+}
+
+.bloqueado-input {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(17, 17, 17, 0.9);
+  color: #ffffff;
+  font-family: var(--font-ui);
+  font-size: 0.98rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bloqueado-input::placeholder {
+  color: #7f7f7f;
+}
+
+.bloqueado-input:focus {
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.06);
+}
+
+.bloqueado-button {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #000000;
+  font-family: var(--font-ui-bold);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.bloqueado-button:hover {
+  background: #dfdfdf;
+  transform: translateY(-1px);
+}
+
+.bloqueado-error {
+  margin-top: 14px;
+  color: #ff6b6b;
+  font-family: var(--font-ui);
+  font-size: 0.92rem;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes smokeFloat {
+  from {
+    transform: scale(1.03) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.1) translate3d(-18px, -8px, 0);
+  }
+}
+
+@keyframes logoPulse {
+  0%,
+  100% {
+    opacity: 0.92;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@media (max-width: 576px) {
+  .bloqueado-content {
+    padding: 30px 20px;
+    border-radius: 22px;
+  }
+
+  .bloqueado-title {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+    line-height: 0.98;
+  }
+
+  .bloqueado-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .bloqueado-logo {
+    width: min(230px, 76%);
+  }
+}
