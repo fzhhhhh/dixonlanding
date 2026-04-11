@@ -11,6 +11,9 @@ import Contacto from "./components/Contacto";
 import Footer from "./components/Footer";
 import DetalleTrabajo from "./pages/DetalleTrabajo";
 import DetalleMoto from "./pages/DetalleMoto";
+import Bloqueado from "./pages/Bloqueado"; // 👈 IMPORTANTE
+
+const BLOQUEADO = true; // 🔒 cambiar a false cuando te paguen
 
 function Home() {
   return (
@@ -27,6 +30,11 @@ function Home() {
 }
 
 function App() {
+  // 🔒 SI ESTÁ BLOQUEADO, NO SE VE NADA MÁS
+  if (BLOQUEADO) {
+    return <Bloqueado />;
+  }
+
   const mensaje = encodeURIComponent(
     "Hola, quiero hacer una consulta sobre una moto o un servicio del taller."
   );

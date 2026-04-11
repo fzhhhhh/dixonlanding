@@ -25,12 +25,20 @@ function DetalleTrabajo() {
 
   const trabajo = trabajos.find((t) => t.id === Number(id));
 
-  if (!trabajo) return <p style={{ padding: 40 }}>Trabajo no encontrado</p>;
+  if (!trabajo) {
+    return <p style={{ padding: 40 }}>Trabajo no encontrado</p>;
+  }
 
   return (
     <Container style={{ paddingTop: 120 }}>
       <h1>{trabajo.titulo}</h1>
-      <img src={trabajo.imagen} style={{ width: "100%", borderRadius: 12 }} />
+
+      <img
+        src={trabajo.imagen}
+        alt={trabajo.titulo}
+        style={{ width: "100%", borderRadius: 12 }}
+      />
+
       <p style={{ marginTop: 20 }}>{trabajo.descripcion}</p>
     </Container>
   );
